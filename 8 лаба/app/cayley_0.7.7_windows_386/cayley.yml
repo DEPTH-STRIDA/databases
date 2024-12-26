@@ -1,0 +1,8 @@
+store:
+  backend: memstore
+  address: ""
+  read_only: false
+server:
+  host: 127.0.0.1
+  port: 64210
+  read_only: false

@@ -1,0 +1,112 @@
+      Веб-приложения:
+JavaScript на сервере с NodeJS
+Области применения баз данных
+●   Настольные решения/ERP
+●   Мобильные встраиваемые Б/Д
+●   Веб-приложения
+          Стек веб-приложения
+
+●   Статика: http-сервер (картинки, стили,
+    статические странички)
+●   Динамика: application-сервер (платформы и
+    контейнеры веб-приложений для разных
+    языков) (исполняемый код)
+●   Хранение данных — базы данных
+Статика: http-сервер (веб-сервер)
+
+●   Apache
+●   nginx
+           Динамика: application-сервер
+    (платформы и контейнеры веб-приложений)
+●   Java (Tomcat, GlassFish, ...)
+●   Scala
+●   Ruby
+●   C# (.Net)
+●   PHP (mod_php)
+●   Python
+●   JavaScript (NodeJS)
+●   …
+Хранение данных — базы данных
+
+●   SQL: MySQL/MariaDB, PostgreSQL, sqlite,
+    H2 ...
+●   NoSQL: MongoDB, CouchDB (документо-
+    ориентированные), Cassandra (), Neo4j (б/д
+    на основе графов), ...
+    node.js: JavaScript,
+освобожденный от браузера
+  (JavaScript на сервере)
+                              http-hello.js
+var http = require("http");
+
+http.createServer(function (request, response) {
+   response.writeHead(200, {"Content-Type": "text/plain; charset=utf-8"});
+
+  var a=3;
+  var b=5;
+  response.write("" + a + " + " + b + " = " + (a+b) + "\n");
+
+    response.end("работает\n");
+}).listen(3000);
+
+console.log("Server running at http://localhost:3000/");
+● npm install http (на самом
+  деле не обязательно)
+● node http-hello.js
+
+
+● в браузере открываем адрес:
+
+  http://localhost:3000/
+localhost:3000
+                               http-hello-html.js
+var http = require("http");
+
+http.createServer(function (request, response) {
+   response.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
+   response.write("<!DOCTYPE html>\n" +
+      "<html>\n" +
+      " <head>\n" +
+      " <meta charset='utf-8'>\n" +
+      " </head>\n" +
+      " <body>\n"
+   );
+   var a=3;
+   var b=5;
+   response.write("" + a + " + " + b + " = " + (a+b) + "\n");
+
+    response.end(
+       " </body>\n" +
+       "</html>\n"
+    );
+}).listen(3000);
+
+console.log("Server running at http://localhost:3000/");
+localhost:3000
+ПКМ > Исходный код страницы
+     npm — Node package manager
+●   npm install имя_пакета — установить пакет локально
+●   npm install имя_пакета -g — установить пакет глобально
+●   npm install имя_пакета --save — установить пакет и
+    сохранить зависимость в package.json
+●   npm install — установить зависимости из package.json
+●   ./node_modules — локальные зависимости проекта
+    (можно смело удалять)
+●   package.json — манифест проекта: информация о
+    проекте плюс список зависимостей
+                  package.json
+{
+    "name": "http-demo",
+    "version": "0.1.0",
+    "main": "http-hello.js",
+    "dependencies": {
+      "http": "0.0.0"
+    }
+}
+           Лаба 5.0.1/5.0.2/5.0.3
+●   Запустить демо http-hello.js
+●   Запустить демо http-hello-html.js
+●   Сверстать статическую страницу — таблицу
+    с данными из предыдущих лаб, вернуть в
+    браузер по схеме http-hello-html
+

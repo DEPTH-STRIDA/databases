@@ -1,0 +1,9 @@
+{
+    "name": "lab5-http-demo",
+    "version": "0.1.0",
+    "main": "http-hello.js",
+    "dependencies": {
+        "gorm.io/driver/sqlite": "^1.5.7",
+        "gorm.io/gorm": "^1.25.7"
+    }
+} 
